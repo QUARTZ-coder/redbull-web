@@ -2,16 +2,16 @@
 body {
     margin: 0;
     padding: 0;
-    /* Menggunakan font monospace agar terlihat seperti terminal */
     font-family: 'Courier New', Courier, monospace;
-    background: #0a0a0a; /* Hitam pekat */
+    background: #0a0a0a;
     background-image: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px; /* Efek grid digital */
+    background-size: 20px 20px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Tambahan: Mencegah scrollbar muncul jika ada efek cahaya */
 }
 
 /* Kotak Login */
@@ -22,23 +22,23 @@ body {
 }
 
 .login-box {
-    background: #111; /* Abu-abu sangat gelap */
+    background: #111;
     padding: 40px;
-    border-radius: 5px; /* Siku lebih tajam lebih berkesan industrial */
-    border: 1px solid #00ff41; /* Border hijau neon */
+    border-radius: 5px;
+    border: 1px solid #00ff41;
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
     text-align: center;
 }
 
 h2 {
-    color: #00ff41; /* Hijau Matrix */
+    color: #00ff41;
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 p {
-    color: #008f11; /* Hijau gelap */
+    color: #008f11;
     font-size: 14px;
     margin-bottom: 30px;
 }
@@ -54,7 +54,7 @@ p {
     background: #000;
     border: 1px solid #008f11;
     border-radius: 4px;
-    color: #00ff41; /* Tulisan saat mengetik jadi hijau */
+    color: #00ff41;
     box-sizing: border-box;
     outline: none;
     transition: 0.3s;
@@ -65,12 +65,12 @@ p {
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
-/* Placeholder warna hijau redup */
 .input-group input::placeholder {
     color: #004400;
 }
 
-/* Tombol */
+/* --- BAGIAN TOMBOL (DENGAN LOGIKA LOADING 7 DETIK) --- */
+
 button {
     width: 100%;
     padding: 12px;
@@ -83,12 +83,31 @@ button {
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
     background: #00ff41;
     color: #000;
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+}
+
+/* Kondisi saat JavaScript menjalankan proses loading 7 detik */
+button:disabled {
+    background: #051a05; /* Gelap saat loading */
+    color: #00ff41;
+    border-color: #00ff41;
+    cursor: wait; /* Kursor berubah jadi simbol loading */
+    opacity: 1;
+    /* Efek teks berkedip selama loading */
+    animation: blinkText 0.8s infinite;
+}
+
+@keyframes blinkText {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 .footer {
