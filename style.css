@@ -2,8 +2,12 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Menggunakan font monospace agar terlihat seperti terminal */
+    font-family: 'Courier New', Courier, monospace;
+    background: #0a0a0a; /* Hitam pekat */
+    background-image: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px; /* Efek grid digital */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,20 +22,23 @@ body {
 }
 
 .login-box {
-    background: white;
+    background: #111; /* Abu-abu sangat gelap */
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 5px; /* Siku lebih tajam lebih berkesan industrial */
+    border: 1px solid #00ff41; /* Border hijau neon */
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
     text-align: center;
 }
 
 h2 {
-    color: #333;
+    color: #00ff41; /* Hijau Matrix */
     margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 p {
-    color: #777;
+    color: #008f11; /* Hijau gelap */
     font-size: 14px;
     margin-bottom: 30px;
 }
@@ -44,37 +51,49 @@ p {
 .input-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-sizing: border-box; /* Agar padding nggak bikin input lebar sebelah */
+    background: #000;
+    border: 1px solid #008f11;
+    border-radius: 4px;
+    color: #00ff41; /* Tulisan saat mengetik jadi hijau */
+    box-sizing: border-box;
     outline: none;
     transition: 0.3s;
 }
 
 .input-group input:focus {
-    border-color: #764ba2;
-    box-shadow: 0 0 5px rgba(118, 75, 162, 0.3);
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+/* Placeholder warna hijau redup */
+.input-group input::placeholder {
+    color: #004400;
 }
 
 /* Tombol */
 button {
     width: 100%;
     padding: 12px;
-    background: #764ba2;
-    border: none;
-    border-radius: 8px;
-    color: white;
+    background: transparent;
+    border: 1px solid #00ff41;
+    border-radius: 4px;
+    color: #00ff41;
     font-size: 16px;
     font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s;
 }
 
 button:hover {
-    background: #5a368a;
+    background: #00ff41;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
 }
 
 .footer {
     margin-top: 20px;
     font-size: 12px;
+    color: #004400;
 }
+
